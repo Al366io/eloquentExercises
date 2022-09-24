@@ -1,6 +1,5 @@
 /*
-    Ex n.1
-    Looping a triangle
+    LOOPING A TRIANGLE
     Write a loop that makes seven calls to console.log to output the following triangle:
 
     #
@@ -10,7 +9,7 @@
     #####
     ######
     #######
-    
+
     It may be useful to know that you can find the length of a string by writing .length after it.
 */
 
@@ -27,7 +26,7 @@ function loopingTriangle(num) {
 console.log(loopingTriangle(7))
 
 /*
-    FizzBuzz
+    FIZZBUZZ
     Write a program that uses console.log to print all the numbers from 1 to 100, with two exceptions.
     For numbers divisible by 3, print "Fizz" instead of the number, and for numbers divisible by 5 
     (and not 3), print "Buzz" instead.
@@ -42,7 +41,7 @@ function fizzBuzz() {
 }
 
 /*
-    Chessboard
+    CHESSBOARD
     Write a program that creates a string that represents an 8×8 grid, using newline characters
     to separate lines. At each position of the grid there is either a space or a "#" character. 
     The characters should form a chessboard.
@@ -63,5 +62,37 @@ function fizzBuzz() {
 */
 
 function chessboard() {
+    //SOLVE HERE
+}
+
+/*
+    MINIMUM
+    Write a function min that takes two arguments and returns their minimum.
+    ( will Math.min help? )
+*/
+
+function returnMin(a,b) {
+    //SOLVE HERE
+}
+
+/* 
+    RECURSION
+    We’ve seen that % (the remainder operator) can be used to test whether a number is even or odd 
+    by using % 2 to see whether it’s divisible by two. Here’s another way to define whether a 
+    positive whole number is even or odd:
+
+    Zero is even.
+
+    One is odd.
+
+    For any other number N, its evenness is the same as N - 2.
+
+    Define a recursive function isEven corresponding to this description. 
+    The function should accept a single parameter (a positive, whole number) and return a Boolean.
+
+    Test it on 50 and 75. See how it behaves on -1. Why? Can you think of a way to fix this?
+*/
+
+function isEven(num) {
     //SOLVE HERE
 }
