@@ -10,13 +10,17 @@
     #####
     ######
     #######
-
+    
     It may be useful to know that you can find the length of a string by writing .length after it.
 */
 
 function loopingTriangle(num) {
     // SOLVE HERE
-
+    let string = '#';
+    for (let i=0; i<num; i++) {
+        console.log(string);
+        string.append('#');
+    }
 };
 
 // tester. leave untouched.
