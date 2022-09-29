@@ -145,3 +145,16 @@ function sumOfRange() {
 console.log('\n-------- TESTING sumOfrange --------\n');
 let arrBuffsor = [ 10,8,6,4,2 ];
 JSON.stringify(sumOfRange(10,1,-2))===JSON.stringify(arrBuffsor) ? console.log('ok') : console.log('Error');
+
+/*
+  REVERSING AN ARRAY
+
+  Arrays have a reverse method that changes the array by inverting the order in which its elements appear. 
+  For this exercise, write the functions reverseArrayInPlace. It should do what the reverse method does: 
+  it modifies the array given as argument by reversing its elements. You cannot use the standard reverse method.
+
+*/
+
+function reverseArrayInPlace(arr) {
+  //SOLVE HERE
+}
