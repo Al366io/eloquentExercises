@@ -233,5 +233,10 @@ function reverseArrayInPlace(arr) {
     arr[i]=arr[trueLength-i];
     arr[trueLength-i]=buff;
   }
-  console.log(arr);
+  return(arr);
 }
+
+console.log('\n-------- TESTING reverseArrayInPlace --------\n');
+let array=[1,2,3,4,5,6];
+let arrayReversed=[6,5,4,3,2,1];
+JSON.stringify(reverseArrayInPlace(array))===JSON.stringify(arrayReversed) ? console.log('ok') : console.log('Error');
