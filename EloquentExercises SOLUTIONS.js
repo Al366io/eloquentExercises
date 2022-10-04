@@ -276,11 +276,56 @@ JSON.stringify(reverseArrayInPlace(array))===JSON.stringify(arrayReversed) ? con
 
 **/
 
-function aList() {
-
+function arrayToList(arr) {
+  // SOLVE HERE
+  let list=null, buffList=null;
+  for (let i=arr.length-1; i>-1; i--) {
+    buffList = list;
+    list = {
+      value: arr[i],
+      rest: buffList
+    }
+  }
+  return list;
 }
 
-console.log('\n-------- TESTING aList --------\n');
+function listToArray(list) {
+  // SOLVE HERE
+  let arr=[];
+  for (let node=list; node!=null; node=node.rest) {
+    arr.push(node.value);
+  }
+  return arr;
+}
+
+function prepend(el, list) {
+  let newList = {
+    value: el,
+    rest: list
+  }
+  return newList;
+}
+
+function nth(list, num) {
+  let i=0;
+  for (let node=list; node!=null; i++) {
+    if(i===num)
+      return node.value;
+    node=node.rest;
+  }
+  return undefined;
+}
+
+console.log('\n-------- TESTING arrayToList --------\n');
+console.log(arrayToList([1,2,3])); 
+// →  { value: 1, rest: { value: 2, rest: { value: 3, rest: null } } }
+let list= { value: 1, rest: { value: 2, rest: { value: 3, rest: null } } };
+console.log(listToArray(list)); 
+// →  [ 1, 2, 3]
+console.log(prepend(10, prepend(20, null))); 
+// →  {value: 10, rest: {value: 20, rest: null}}
+console.log(nth(arrayToList([10, 20, 30]), 1) + ', ' + nth(arrayToList([10, 20, 30]), 6));
+// → 20, undefined
 
 /* 
 
@@ -298,8 +343,35 @@ console.log('\n-------- TESTING aList --------\n');
 
 */
 
-function deepComparison() {
+function deepEqual(arg1, arg2) {
+  if ( typeof arg1 !== "object" && typeof arg2 === "object")
+    return false
+    if ( typeof arg2 !== "object" && typeof arg1 === "object")
+    return false
 
+  if (typeof arg1 === "object" && typeof arg2 === "object") {
+    let keys1 = Object.keys(arg1);
+    let keys2 = Object.keys(arg2);
+    if ( keys1.length !== keys2.length )
+      return false
+    for (let i=0; i<keys1.length; i++) {
+      if (deepEqual(arg1[keys1[i]], arg2[keys2[i]])===false)
+        return false
+    }
+    return true;
+  }
+  else 
+    if (arg1===arg2)
+      return true;
+    else
+      return false;
 }
 
 console.log('\n-------- TESTING deepComparison --------\n');
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj));
+// → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// → false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+// → true
