@@ -199,11 +199,33 @@ JSON.stringify(reverseArrayInPlace(array))===JSON.stringify(arrayReversed) ? con
 
 **/
 
-function aList() {
 
+function arrayToList(arr) {
+  // SOLVE HERE
 }
 
-console.log('\n-------- TESTING aList --------\n');
+function listToArray(list) {
+  // SOLVE HERE
+}
+
+function prepend(el, list) {
+  // SOLVE HERE
+}
+
+function nth(list, num) {
+  // SOLVE HERE
+}
+
+console.log('\n-------- TESTING arrayToList --------\n');
+console.log(arrayToList([1,2,3])); 
+// →  { value: 1, rest: { value: 2, rest: { value: 3, rest: null } } }
+let list= { value: 1, rest: { value: 2, rest: { value: 3, rest: null } } };
+console.log(listToArray(list)); 
+// →  [ 1, 2, 3]
+console.log(prepend(10, prepend(20, null))); 
+// →  {value: 10, rest: {value: 20, rest: null}}
+console.log(nth(arrayToList([10, 20, 30]), 1) + ', ' + nth(arrayToList([10, 20, 30]), 6));
+// → 20, undefined
 
 /* 
 
@@ -222,7 +244,89 @@ console.log('\n-------- TESTING aList --------\n');
 */
 
 function deepComparison() {
-
+  // SOLVE HERE
 }
 
 console.log('\n-------- TESTING deepComparison --------\n');
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj));
+// → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// → false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+// → true
+
+
+/* 
+
+Flattening
+Use the reduce method in combination with the concat method to “flatten” an array of arrays 
+into a single array that has all the elements of the original arrays.
+
+*/
+
+function flattening(arr) {
+  // SOLVE HERE 
+}
+
+console.log('\n-------- TESTING flattening --------\n');
+let arrOfArrs = [[1, 2, 3], [4, 5], [6]];
+console.log(flattening(arrOfArrs)); 
+// → [ 1, 2, 3, 4, 5, 6 ]
+
+/* 
+
+Write a higher-order function loop that provides something like a for loop statement. 
+It takes a value, a test function, an update function, and a body function. 
+Each iteration, it first runs the test function on the current loop value and stops if that returns false. 
+Then it calls the body function, giving it the current value. Finally, it calls the update function 
+to create a new value and starts from the beginning.
+
+When defining the function, you can use a regular loop to do the actual looping.
+  (or something else :) )
+
+*/
+
+function hoLoop(val,test,update,body) {
+  // SOLVE HERE
+}
+
+console.log('\n-------- TESTING hoLoop --------\n');
+hoLoop(3, n => n > 0, n => n - 1, console.log);
+// → 3
+// → 2
+// → 1
+
+/* 
+
+Analogous to the some method, arrays also have an every method. 
+This one returns true when the given function returns true for every element in the array. 
+In a way, some is a version of the || operator that acts on arrays, and every is like the && operator.
+
+Implement every as a function that takes an array and a predicate function as parameters. 
+Write two versions, one using a loop and one using the some method.
+
+*/
+
+function every(array, test) {
+  // SOLVE HERE
+}
+
+function everySome(array, test) {
+  // SOLVE HERE
+}
+
+console.log('\n-------- TESTING every --------\n');
+console.log(every([1, 3, 5], n => n < 10));
+// → true
+console.log(every([2, 4, 16], n => n < 10));
+// → false
+console.log(every([], n => n < 10));
+// → true
+console.log('\n-------- TESTING everySome --------\n');
+console.log(everySome([1, 3, 5], n => n < 10));
+// → true
+console.log(everySome([2, 4, 16], n => n < 10));
+// → false
+console.log(everySome([], n => n < 10));
+// → true
